@@ -12,18 +12,15 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    public void btnClick(View view){
-        EditText editText = (EditText)findViewById(R.id.et);
-        String dollarAmount = editText.getText().toString();
-        Double doubleDollar = Double.parseDouble(dollarAmount);
-        Double inrAmount = 75.16*doubleDollar;
-        String result = "= " + inrAmount.toString() + " INR";
-        Toast.makeText(this,result,Toast.LENGTH_SHORT).show();
-    }
 
+    Spinner spinner1,spinner2;
+    EditText editText;
+    String firstCurrency;
+    String secondCurrency;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +28,9 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        spinner1 = findViewById(R.id.spinner1);
+        spinner2 = findViewById(R.id.spinner2);
+        editText = findViewById(R.id.et1);
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,5 +60,17 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void Convert(View view) {
+         firstCurrency = String.valueOf(spinner1.getSelectedItem());
+         secondCurrency = String.valueOf(spinner2.getSelectedItem());
+        if(firstCurrency.equals("US Dollar") && secondCurrency.equals("INR")){
+            String amount = editText.getText().toString();
+            Double dollar = Double.parseDouble(amount);
+            Double INR = dollar*75.16;
+            String inrAmount = "= "+INR.toString()+" INR";
+            Toast.makeText(this, inrAmount, Toast.LENGTH_SHORT).show();
+        }
     }
 }

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:padding="10dp"
     tools:context=".MainActivity">
 
@@ -11,37 +12,74 @@
         android:id="@+id/tv1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome to convertex\n  ($ to INR converter)"
+        android:layout_gravity="center"
+        android:text="Welcome to convertex\n  (Currency converter)"
         android:textSize="20dp"
         android:layout_marginTop="70dp"
         android:layout_centerHorizontal="true"/>
     <ImageView
         android:id="@+id/iv1"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="250dp"
+
         android:layout_below="@+id/tv1"
         android:src="@drawable/money"/>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:padding="10dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            android:text="From"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="To"
+            android:textStyle="bold"
+            android:layout_weight="1"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv1"
+        android:layout_weight="0"
+        android:layout_marginTop="10dp">
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spinner1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:entries="@array/Currencylist"/>
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spinner2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/Currencylist"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
     <EditText
-        android:id="@+id/et"
-        android:layout_width="wrap_content"
+        android:id="@+id/et1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/iv1"
-        android:hint="Enter the amount in $$"
-        android:layout_marginTop="10dp"
-        android:layout_centerHorizontal="true"
-        android:textSize="30dp"/>
-
+        android:inputType="number"
+        android:hint="Enter Amount"
+        android:layout_marginTop="20dp"/>
     <Button
-        android:id="@+id/btn1"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/et"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:onClick="btnClick"
-        android:text="Get INR amount"
-        android:textAllCaps="false"
-        android:textSize="25dp" />
+        android:layout_gravity="center"
+        android:text="Convert"
+        android:textStyle="bold"
+        android:onClick="Convert"
+        android:textSize="20dp"
+        android:layout_marginTop="20dp"
+        android:textAllCaps="false"/>
 
-</RelativeLayout>
+</LinearLayout>
