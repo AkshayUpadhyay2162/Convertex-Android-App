@@ -72,5 +72,19 @@ public class MainActivity extends AppCompatActivity {
             String inrAmount = "= "+INR.toString()+" INR";
             Toast.makeText(this, inrAmount, Toast.LENGTH_SHORT).show();
         }
+        else if(firstCurrency.equals("US Dollar") && secondCurrency.equals("Euro")){
+            String amount = editText.getText().toString();
+            Double dollar = Double.parseDouble(amount);
+            Double Euro = dollar*0.88;
+            String euroAmount = "= "+Euro.toString()+" Euro";
+            Toast.makeText(this, euroAmount, Toast.LENGTH_SHORT).show();
+        }
+        else if(firstCurrency.equals("US Dollar") && secondCurrency.equals("Pound")){
+            String amount = editText.getText().toString();
+            Double dollar = Double.parseDouble(amount);
+            Double Pound = dollar*0.80;
+            String poundAmount = "= "+Pound.toString()+" Pounds";
+            Toast.makeText(this, poundAmount, Toast.LENGTH_SHORT).show();
+        }
     }
 }
