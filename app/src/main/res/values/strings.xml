@@ -9,11 +9,16 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <string-array name="Currencylist">
+    <string-array name="Currencylist" text-style="bold">
         <item>US Dollar</item>
         <item>INR</item>
         <item>Pound</item>
         <item>Euro</item>
         <item>Japanese Yen</item>
+    </string-array>
+    <string-array name="Distancelist" text-style="bold">
+        <item>Kilo Meter</item>
+        <item>Miles</item>
+
     </string-array>
 </resources>
